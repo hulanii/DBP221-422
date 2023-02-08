@@ -1,0 +1,261 @@
+#1
+
+a = ['python','php', 'java']
+print(a[0])
+print(a[1])
+print(a[2])
+python
+php
+java
+
+#2
+
+b= [8, 23, 14, 17, 90, 2, 45, 22, 8, 11]
+n = 0
+for i in range(0, len(b)):
+    n = n + b[i]
+print("sum:", n)
+sum: 240
+
+#3
+
+c = [1, 2, 3, 4, 5]
+n = 1
+for i in range(0, len(c)):
+    n = n * c[i]
+print(n)
+120
+
+#4
+
+d = [3, 5, 2, 6, 1, 9]
+
+def multi(value):
+    a = d[2]
+    b = d[-1]
+    y = a * b
+    return y
+
+multi(d)
+18
+#5
+
+e = [0, 2, 90, 7]
+
+def y(e):
+    a = max(e)
+    b = min(e)
+    y = (a,b)
+    return y
+
+y(e)
+(90, 0)
+
+#6
+
+f = ["abdba", "abcd", "121"]
+n = 0;
+for i in f:
+    if (len(i) >= 2 and i[0] == i[-1]):
+        n = n + 1
+print(n)
+2
+#7
+
+g = ["abdba", "abcd", "121", "121", "abcd"]
+# method 1
+g = dict.fromkeys(g)
+print(list(g))
+
+# method 2
+print(list(set(g)))
+['abdba', 'abcd', '121']
+['121', 'abcd', 'abdba']
+#8
+
+h = [0, 2, "list"]
+#h = []
+if h:
+    print("List is not empty")
+else:
+    print("List is Empty")
+List is not empty
+
+#9
+
+j = [6, 0, 12, 34, "sun", 2, "sky", 20, "cloud", 5, 67, 12]
+#method 1
+anti_j = [4, 6, 8]
+for i in sorted(anti_j, reverse = True):
+    del j[i]
+print(j)
+
+#method 2
+#j.pop(4)
+#j.pop(5)
+#j.pop(6)
+#print(j)
+[6, 0, 12, 34, 2, 20, 5, 67, 12]
+
+#10 
+
+tuple_a = (4, 12, 0, 45, 22, 7)
+print(tuple_a)
+(4, 12, 0, 45, 22, 7)
+
+#11
+
+tuple_b = (4, 12, 0, 45, 22, 7)
+y = list(tuple_b)
+y.extend(["sun", "sky"])
+tuple_b = tuple(y)
+print(tuple_b)
+(4, 12, 0, 45, 22, 7, 'sun', 'sky')
+#12 
+
+tuple_c = (4, 12, 0, 45, 22, 7, "sun", "sky")
+x = tuple_c[2], tuple_c[-2]
+print(x)
+(0, 'sun')
+
+#13 
+
+tuple_d = ("blue", "green", "white", "black")
+x = input("Test value: ")
+if x in tuple_d:
+    print("yes")
+else:
+    print("no")
+Test value: black
+yes
+#14
+
+#method 1
+tuple_e = (4, 12, 0)
+for i in tuple_e:
+    print(i)
+    
+#method 2
+tuple_ee = ("a", "b")
+
+for item in tuple_ee:
+    print(str(item[0])) 
+4
+12
+0
+a
+b
+
+#15
+
+set_a = {4, 12, 0}
+set_b = {"a", "b"}
+
+set_union = set_a.union(set_b)
+print(set_union)
+{0, 4, 'a', 12, 'b'}
+#16
+
+set_a = {4, 12, 0, 45, 22, 7, "sun", "sky"}
+set_b = {45, 6, "cloud", 34, 35, 18, 90, "sky", 12}
+
+set_dupli = set_a.intersection(set_b)
+print(set_dupli)
+{45, 'sky', 12}
+
+
+#17
+
+set_a = {4, 12, 0, 45, 22, 7, "sun", "sky"}
+print(len(set_a))
+8
+#18
+
+set_a = {4, 12, 0, 45, 22, 7, "sun", "sky"}
+set_b = {45, 6, "cloud", 34, 35, 18, 90, "sky", 12}
+set_remove = set_a.difference(set_b)
+print(set_remove)
+{0, 4, 7, 'sun', 22}
+
+#19
+
+set_a = {4, 12, 0, 45, 22, 7, "sun", "sky"}
+set_a.clear()
+print(set_a)
+set()
+#20
+
+set_a = {4, 12, 0, 45, 22, 7, "sun", "sky"}
+del set_a
+print(set_a)
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+~\AppData\Local\Temp/ipykernel_10440/3813381372.py in <module>
+      3 set_a = {4, 12, 0, 45, 22, 7, "sun", "sky"}
+      4 del set_a
+----> 5 print(set_a)
+
+NameError: name 'set_a' is not defined
+
+
+#21
+
+import operator
+dict_a = {1: 2, 1: 4, 4: 3, 2: 1, 0: 0}
+
+sorted_dict = sorted(dict_a.items(), key=operator.itemgetter(1))
+print("ascending: ",sorted_dict)
+
+sorted_dict = dict( sorted(dict_a.items(), key=operator.itemgetter(1),reverse=True))
+print("descending : ",sorted_dict)
+ascending:  [(0, 0), (2, 1), (4, 3), (1, 4)]
+descending :  {1: 4, 4: 3, 2: 1, 0: 0}
+#22
+
+dict_b = {1: 2, 1: 4, 4: 3, 2: 1, 0: 0}
+key = 6
+
+if key in dict_b:
+    print("the key is in the dict")
+else:
+    print("the key is NOT in the dict")
+the key is NOT in the dict
+
+#23
+
+dict_b = {1: 2, 1: 4, 4: 3, 2: 1, 0: 0}
+value = 10
+
+if value in dict_b:
+    print("the value is in the dict")
+else:
+    print("the value is NOT in the dict")
+the value is NOT in the dict
+#24
+
+dict_c = {"a": 2, "b": 4, "c": 3, "d": 1}
+for x,y in dict_c.items():
+    print(x,y)
+a 2
+b 4
+c 3
+d 1
+
+#25
+
+dict_a = {"a": 2, "b": 4}
+dict_b = {"c": 3, "d": 1}
+
+y = dict_a.update(dict_b)
+dict_a
+{'a': 2, 'b': 4, 'c': 3, 'd': 1}
+#26
+
+dict_d = {"a": 2, "b": 4, "c": 3, "d": 1}
+
+sum = 0
+for i in dict_d.values():
+    sum = sum + i
+
+print(sum)
+10
